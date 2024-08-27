@@ -1,12 +1,19 @@
-export const GisfApp = () => {
+import { useGif } from "../hooks/useGif"
+
+// functional component
+export const GifApp = () => {
+
+    const {gif, handleGetGif} = useGif()
 
     return(
-       <>
-        <div>
-            <button calssName='btn btn-primary'>Generar Gif</button>
-        </div>
-            <img className = 'w-50 m-5' src={''} alt='image'/>
-
-    </> 
+        // fragment
+        <>
+            <div>
+                <button onClick={handleGetGif} className="btn btn-outline-success position-absolute start-50">Generar Gif</button>
+            </div>
+            <div>
+                <img className="w-50 m-5" src={gif} alt="gif" />
+            </div>
+        </>
     )
-    }
+}
